@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mai Take a Statin</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: black;
+    }
+
+    .rainbow-text {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(0deg);
+      font-size: 4em;
+      font-weight: bold;
+      animation: rotate 5s linear infinite;
+      background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+    }
+
+    @keyframes rotate {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .light {
+      position: absolute;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      background-color: white;
+      animation: flash 0.5s infinite alternate;
+    }
+
+    @keyframes flash {
+      0% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0.2; transform: scale(1.5); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="rainbow-text">Mai take a statin</div>
+
+  <script>
+    // Generate 100 disco lights
+    for (let i = 0; i < 100; i++) {
+      const light = document.createElement('div');
+      light.classList.add('light');
+      light.style.left = Math.random() * 100 + 'vw';
+      light.style.top = Math.random() * 100 + 'vh';
+      light.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      light.style.animationDuration = `${Math.random() + 0.2}s`;
+      document.body.appendChild(light);
+    }
+  </script>
+
+</body>
+</html>
